@@ -1,0 +1,7 @@
+#+startup: showall
+
+* ob-ammonite.el
+  org-babel for scala evaluation in [[https://github.com/zwild/ammonite-term-repl][ammonite-term-repl]].
+
+* Demo
+  [[./demo.gif]]
