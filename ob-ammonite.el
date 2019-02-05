@@ -35,6 +35,9 @@
 (require 's)
 (require 'xterm-color)
 
+(add-to-list 'org-babel-tangle-lang-exts '("amm" . "scala"))
+(add-to-list 'org-src-lang-modes '("amm" . "scala"))
+
 (defvar ob-ammonite-debug-p nil
   "The variable to control the debug message.")
 
@@ -48,9 +51,9 @@
   "Expand the BODY to evaluate."
   (format "{\n %s\n%s }" body ob-ammonite-eval-needle))
 
-(defun ob-ammonite-trim-result (str)
-  "Get the final result.
-Argument STR the result."
+(defun ob-ammonite--trim-result (str)
+  "Trim the result string.
+Argument STR the result evaluated."
   (s-trim
    (s-chop-suffix
     "@"
@@ -59,10 +62,11 @@ Argument STR the result."
      (s-trim
       (s-join "" (cdr (s-split ob-ammonite-eval-needle str))))))))
 
-(defun org-babel-execute:scala (body params)
-  "Execute the scala code in org-babel.
+(defun org-babel-execute:amm (body params)
+  "Execute the scala code in BODY using PARAMS in org-babel.
+This function is called by `org-babel-execute-src-block'
 Argument BODY the body to evaluate.
-Argument PARAMS"
+Argument PARAMS the header arguments."
   (ammonite-term-repl-check-process)
   (setq ob-ammonite-eval-result "")
 
@@ -83,7 +87,7 @@ Argument PARAMS"
   (sit-for 0.2)
 
   (when ob-ammonite-debug-p (print (concat "#### " ob-ammonite-eval-result)))
-  (ob-ammonite-trim-result ob-ammonite-eval-result))
+  (ob-ammonite--trim-result ob-ammonite-eval-result))
 
 (provide 'ob-ammonite)
 
