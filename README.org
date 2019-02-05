@@ -28,18 +28,20 @@
    #+end_src
 
 ** Usage
-   \#+begin_src amm :results org
+   #+begin_src org
+   ,#+begin_src amm :results org
    sealed trait Maybe[+T]
    final case object Empty extends Maybe[Nothing]
    final case class Just[T](t: T) extends Maybe[T]
-   \#+end_src
+   ,#+end_src
 
-   \#+RESULTS:
-   \#+BEGIN_SRC org
+   ,#+RESULTS:
+   ,#+BEGIN_SRC org
    defined trait Maybe
    defined object Empty
    defined class Just
-   \#+END_SRC
+   ,#+END_SRC
+   #+end_src
 
 ** Demo
    with this [[https://github.com/melpa/melpa/pull/5999][discuss]], please replace the *scala* in *begin_src* block with *amm*
