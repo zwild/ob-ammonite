@@ -44,5 +44,5 @@
    #+end_src
 
 ** Demo
-   with this [[https://github.com/melpa/melpa/pull/5999][discuss]], please replace the *scala* in *begin_src* block with *amm*
+   With this [[https://github.com/melpa/melpa/pull/5999][discussion]], please replace the *scala* in *begin_src* block with *amm*
    [[./demo.gif]]
