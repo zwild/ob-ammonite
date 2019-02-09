@@ -3,29 +3,16 @@
 * ob-ammonite.el
   org-babel for scala evaluation in [[https://github.com/zwild/ammonite-term-repl][ammonite-term-repl]].
 
+  [[https://melpa.org/#ob-ammonite/][https://melpa.org/packages/ob-ammonite-badge.svg]]
+
 ** Install
    #+begin_src sh
    brew install ammonite-repl
    #+end_src
 
-   It's not available in MELPA now. If you use =package.el=, you can install it like this
+   It is recommended installed by the [[https://github.com/melpa/melpa][MELPA]] package system.
 
-   #+begin_src elisp
-   (defun package-install-from-raw-github (url)
-     (let* ((base-url "https://raw.githubusercontent.com/")
-            (full-url (concat base-url url))
-            (target-dir (expand-file-name "~/.emacs.d/github-pkgs/"))
-            (target-name (car-safe (last (split-string full-url "/" t))))
-            (target (concat target-dir target-name)))
-       (unless (file-exists-p target-dir)
-         (mkdir target-dir))
-       (unless (file-exists-p target)
-         (url-copy-file full-url target t)
-         (package-install-file target))))
-
-   (package-install-from-raw-github "zwild/ammonite-term-repl/master/ammonite-term-repl.el")
-   (package-install-from-raw-github "zwild/ob-ammonite/master/ob-ammonite.el")
-   #+end_src
+   You could install it by ~M-x~: with ~package-install~: ~ob-ammonite~.
 
 ** Usage
    #+begin_src org
