@@ -3,7 +3,7 @@
 * ob-ammonite.el
   org-babel for scala evaluation in [[https://github.com/zwild/ammonite-term-repl][ammonite-term-repl]].
 
-  [[https://melpa.org/#ob-ammonite/][https://melpa.org/packages/ob-ammonite-badge.svg]]
+  [[https://melpa.org/#/ob-ammonite/][https://melpa.org/packages/ob-ammonite-badge.svg]]
 
 ** Install
    #+begin_src sh
