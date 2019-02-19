@@ -36,7 +36,10 @@
    repl.prompt() = "scala> "
    #+end_src
 
-   you should put ~(setq ob-ammonite-prompt-str "scala>")~ in your emacs config file.
+   You should have this in your emacs config file.
+   #+begin_src emacs-lisp
+   (setq ob-ammonite-prompt-str "scala>")
+   #+end_src
 
 ** Demo
    With this [[https://github.com/melpa/melpa/pull/5999][discussion]], please replace the *scala* in *begin_src* block with *amm*
