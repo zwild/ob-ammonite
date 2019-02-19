@@ -38,6 +38,11 @@
 (add-to-list 'org-babel-tangle-lang-exts '("amm" . "scala"))
 (add-to-list 'org-src-lang-modes '("amm" . "scala"))
 
+(defcustom ob-ammonite-prompt-str "@"
+  "Regex for ammonite prompt."
+  :type 'string
+  :group 'org-babel)
+
 (defvar ob-ammonite-debug-p nil
   "The variable to control the debug message.")
 
@@ -56,7 +61,7 @@
 Argument STR the result evaluated."
   (s-trim
    (s-chop-suffix
-    "@"
+    ob-ammonite-prompt-str
     (s-chop-prefix
      "}"
      (s-trim
@@ -82,7 +87,7 @@ Argument PARAMS the header arguments."
     (comint-send-string ammonite-term-repl-buffer-name full-body)
     (comint-send-string ammonite-term-repl-buffer-name "\n"))
 
-  (while (not (s-ends-with? "@" (s-trim-right ob-ammonite-eval-result)))
+  (while (not (s-ends-with? ob-ammonite-prompt-str (s-trim-right ob-ammonite-eval-result)))
     (sit-for 0.5))
   (sit-for 0.2)
 

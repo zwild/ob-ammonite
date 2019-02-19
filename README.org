@@ -30,6 +30,10 @@
    ,#+END_SRC
    #+end_src
 
+** Config
+   If you edit you prompt in ~.ammonite/predef.sc~ with ~repl.prompt() = "scala> "~,  
+   you should put ~(setq ob-ammonite-prompt-str "scala>")~ in your emacs config file.
+
 ** Demo
    With this [[https://github.com/melpa/melpa/pull/5999][discussion]], please replace the *scala* in *begin_src* block with *amm*
    [[./demo.gif]]
