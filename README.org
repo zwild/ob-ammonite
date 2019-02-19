@@ -32,7 +32,9 @@
 
 ** Config
    If you edit you prompt in ~.ammonite/predef.sc~ with
-   ~repl.prompt() = "scala> "~
+   #+begin_src scala
+   repl.prompt() = "scala> "
+   #+end_src
 
    you should put ~(setq ob-ammonite-prompt-str "scala>")~ in your emacs config file.
 
