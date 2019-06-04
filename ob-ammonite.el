@@ -4,7 +4,7 @@
 ;; Created: 2018-12-26T22:56:51+08:00
 ;; URL: https://github.com/zwild/ob-ammonite
 ;; Package-Requires: ((s "1.12.0") (ammonite-term-repl "0.1") (xterm-color "1.7"))
-;; Version: 0.1
+;; Version: 0.2
 ;; Keywords: tools, ammnite, org-mode, scala, org-babel
 
 ;;; License:
@@ -72,7 +72,12 @@ Argument STR the result evaluated."
 This function is called by `org-babel-execute-src-block'
 Argument BODY the body to evaluate.
 Argument PARAMS the header arguments."
-  (ammonite-term-repl-check-process)
+  (unless (comint-check-proc ammonite-term-repl-buffer-name)
+    (ignore-errors
+      (kill-buffer ammonite-term-repl-buffer-name))
+    (save-window-excursion
+      (ammonite-term-repl)))
+
   (setq ob-ammonite-eval-result "")
 
   (set-process-filter
