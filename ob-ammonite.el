@@ -36,7 +36,7 @@
 (require 'xterm-color)
 
 (add-to-list 'org-babel-tangle-lang-exts '("amm" . "scala"))
-(add-to-list 'org-src-lang-modes '("amm" . "scala"))
+(add-to-list 'org-src-lang-modes '("amm" . scala))
 
 (defcustom ob-ammonite-prompt-str "@"
   "Regex for ammonite prompt."
